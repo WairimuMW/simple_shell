@@ -17,16 +17,15 @@ char **split_input(char *input)
 		exit(EXIT_FAILURE);
 	}
 
-	/* tokenize input string */
+	/* break the input string into tokens */
 	token = strtok(input, tok_delim);
 
-	/* loop through the resulting tokens */
+	/* loop through the tokens */
 	while(token != NULL)
 	{
 		tok_arr[pos] = token;
 		pos++;
 
-		/* reallocate memory if necessary */
 		if(pos >= buffsize)
 		{
 			buffsize += BUFFER_SIZE;

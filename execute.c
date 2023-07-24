@@ -2,20 +2,14 @@
 
 /**
  * map_cmd - checks whether a command is a builtin or a process
- * @args: command and subsequent arguments
+ * @args: command and it's subsequent arguments
  *
  * Return: 1 on sucess, 0 otherwise
  */
 int map_cmd(char **args)
 {
-    	char *builtin_list[] = {
-        	"cd",
-        	"env",
-        	"exit"};
-    	int (*builtin_func[])(char **) = {
-        	__cd,
-        	__env,
-        	__exit};
+    	char *builtin_list[] = {"cd", "env", "exit"};
+    	int (*builtin_func[])(char **) = {__cd, __env, __exit};
     	long unsigned int i = 0;
 
     	if (args[0] == NULL)

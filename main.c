@@ -1,32 +1,17 @@
 #include "shell.h"
 
 /**
- * main - initializes the command line interpreter
+ * main - checks if the shell has been called
  *
  * Return: 0 on success
  */
 int main(void)
 {
 
-	char *input;
-	char **args;
-	int status = -1;
-
-	do
-	{
-		print_prompt();			   /* print prompt string */
-		input = read_input();	   /* read the next line of input */
-		args = split_input(input); /* tokenize */
-		status = map_cmd(args);
-		/* free memory */
-		free(input);
-		free(args);
-		/* exit with status */
-		if (status >= 0)
-		{
-			exit(status);
-		}
-	} while (status == -1);
-
-	return (0);
+	/* determines if file descriptor is associated with a terminal */
+    	if (isatty(STDIN_FILENO) == 1)
+        	interact_mode(); /* interactive shell mode is initialized */
+    	else	
+        	non_interact_mode(); /* non_interactive mode is initialized */
+    	return (0);
 }

@@ -10,7 +10,7 @@ int __cd(char **args)
 {
     	if (args[1] == NULL)
     	{
-        	fprintf(stderr, "expected argument to \"cd\"\n");
+        	perror("expected argument to \"cd\"\n");
     	}
     	else
     	{
