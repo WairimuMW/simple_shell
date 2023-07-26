@@ -6,7 +6,7 @@
  *
  * Return: pointer to the next token, NULL otherwise
  */
-char **split_input(char *input)
+char *split_input(char *input)
 {
 	static char *command;
 	static char *saveptr;
